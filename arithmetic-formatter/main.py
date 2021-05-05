@@ -58,11 +58,11 @@ def join_problems_lines(
 ):
     output = []
     for line in range(lines_to_group):
-        output += [(" "*4).join([problem[line] for problem in problems])]
-    return '\n'.join(output)
+        output += [(" " * 4).join([problem[line] for problem in problems])]
+    return "\n".join(output)
 
 
-def arithmetic_arranger(problems: List[str], show_result: bool=False) -> str:
+def arithmetic_arranger(problems: List[str], show_result: bool = False) -> str:
     if len(problems) > 5:
         return "Error: Too many problems."
     try:
@@ -88,6 +88,13 @@ def join_with_results(problems, vertical_problem_lines):
     new_vertical_problem_lines = []
     for lines, result in zip(vertical_problem_lines, result_per_problem):
         line1, line2, line3 = lines
-        new_vertical_problem_lines.append((line1, line2, line3, result,))
+        new_vertical_problem_lines.append(
+            (
+                line1,
+                line2,
+                line3,
+                result,
+            )
+        )
 
     return new_vertical_problem_lines
