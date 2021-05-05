@@ -97,14 +97,10 @@ class BaseDate(BaseClock):
 
     @week_day.setter
     def week_day(self, to_set: WeekDays):
-        total_week_day_index: int = self._week_day.value - 1 + to_set.value - 1
-        valid_weekday_index: int = total_week_day_index % len(WeekDays)
-
-        final_weekday: WeekDays = list(WeekDays)[valid_weekday_index]
-        self._week_day = final_weekday
+        self._week_day = to_set
 
     @staticmethod
-    def _parse_weekday(starting_weekday: Union[str, WeekDays]) -> WeekDays:
+    def _parse_weekday(starting_weekday: Union[str, None, WeekDays]) -> WeekDays:
         if not starting_weekday:
             return list(WeekDays).pop(0)
         else:
